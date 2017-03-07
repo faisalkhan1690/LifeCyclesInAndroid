@@ -2,12 +2,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/white"
     tools:context="com.example.faisalkhan.lifecyclesinandroid.FragmentFour">
 
     <Button
+        android:id="@+id/btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="popFragmentTwoFromStack"
         android:layout_gravity="center"
         android:text="Pop Fragment Two From Stack"/>
 

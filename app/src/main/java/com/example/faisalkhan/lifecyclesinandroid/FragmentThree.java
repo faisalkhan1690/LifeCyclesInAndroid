@@ -1,9 +1,9 @@
 package com.example.faisalkhan.lifecyclesinandroid;
 
+import android.app.Activity;
+import android.app.Fragment;
 import android.content.Context;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,8 +15,16 @@ public class FragmentThree extends Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        if(context instanceof FragmentOne.IFragmentCallBack){
-            iFragmentCallBack= (FragmentThree.IFragmentCallBack) context;
+        if(context instanceof IFragmentCallBack){
+            iFragmentCallBack= (IFragmentCallBack) context;
+        }
+    }
+
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        if(activity instanceof IFragmentCallBack){
+            iFragmentCallBack= (IFragmentCallBack) activity;
         }
     }
 
@@ -27,7 +35,17 @@ public class FragmentThree extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_fragment_one, container, false);
+        View view=inflater.inflate(R.layout.fragment_fragment_three, container, false);
+        View btn = view.findViewById(R.id.btn);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(iFragmentCallBack!=null){
+                    iFragmentCallBack.fragmentThreeCallBack();
+                }
+            }
+        });
+        return view;
     }
 
     @Override
@@ -36,11 +54,6 @@ public class FragmentThree extends Fragment {
         iFragmentCallBack=null;
     }
 
-    public void addFragment(View view){
-        if(iFragmentCallBack!=null){
-            iFragmentCallBack.fragmentThreeCallBack();
-        }
-    }
 
     public interface IFragmentCallBack{
         void fragmentThreeCallBack();

@@ -1,9 +1,9 @@
 package com.example.faisalkhan.lifecyclesinandroid;
 
+import android.app.Activity;
+import android.app.Fragment;
 import android.content.Context;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,8 +16,16 @@ public class FragmentFour extends Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        if(context instanceof FragmentOne.IFragmentCallBack){
-            iFragmentCallBack= (FragmentFour.IFragmentCallBack) context;
+        if(context instanceof IFragmentCallBack){
+            iFragmentCallBack= (IFragmentCallBack) context;
+        }
+    }
+
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        if(activity instanceof IFragmentCallBack){
+            iFragmentCallBack= (IFragmentCallBack) activity;
         }
     }
 
@@ -28,19 +36,23 @@ public class FragmentFour extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_fragment_one, container, false);
+        View view=inflater.inflate(R.layout.fragment_fragment_four, container, false);
+        View btn = view.findViewById(R.id.btn);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(iFragmentCallBack!=null){
+                    iFragmentCallBack.fragmentFourCallBack();
+                }
+            }
+        });
+        return view;
     }
 
     @Override
     public void onDetach() {
         super.onDetach();
         iFragmentCallBack=null;
-    }
-
-    public void popFragmentTwoFromStack(View view){
-        if(iFragmentCallBack!=null){
-            iFragmentCallBack.fragmentFourCallBack();
-        }
     }
 
     public interface IFragmentCallBack{

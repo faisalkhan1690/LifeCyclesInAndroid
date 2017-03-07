@@ -2,11 +2,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/white"
     tools:context="com.example.faisalkhan.lifecyclesinandroid.FragmentTwo">
     <Button
+        android:id="@+id/btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="addFragment"
         android:layout_gravity="center"
-        android:text="Add Fragment Two"/>
+        android:text="Add Fragment Three"/>
 </FrameLayout>

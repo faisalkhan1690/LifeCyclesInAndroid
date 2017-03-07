@@ -14,10 +14,14 @@ public class ActivityFour extends AppCompatActivity {
     }
 
     public void startActivityOne(View view){
-        startActivity(new Intent(this,ActivityFour.class));
+        Intent intent=new Intent(this,ActivityTwo.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        startActivity(intent);
     }
 
     public void startActivityTwo(View view){
-        startActivity(new Intent(this,ActivityFour.class));
+        Intent intent=new Intent(this,ActivityTwo.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
     }
 }
