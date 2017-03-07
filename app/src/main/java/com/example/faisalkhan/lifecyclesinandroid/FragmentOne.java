@@ -9,6 +9,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+/**
+ * FragmentOne class to demonstrate Fragment life cycle change in code and play
+ *
+ * @author faisal khan
+ */
 public class FragmentOne extends Fragment {
 
     final String TAG=FragmentOne.class.getSimpleName();
@@ -109,7 +114,9 @@ public class FragmentOne extends Fragment {
         iFragmentCallBack=null;
     }
 
-
+    /**
+     * Fragment one callback interface
+     */
     public interface IFragmentCallBack{
         void fragmentOneCallBack();
     }

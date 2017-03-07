@@ -8,6 +8,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+/**
+ * FragmentThree class to demonstrate Fragment life cycle change in code and play
+ *
+ * @author faisal khan
+ */
 public class FragmentThree extends Fragment {
 
     private FragmentThree.IFragmentCallBack iFragmentCallBack;
@@ -54,7 +59,9 @@ public class FragmentThree extends Fragment {
         iFragmentCallBack=null;
     }
 
-
+    /**
+     * Fragment three callback interface
+     */
     public interface IFragmentCallBack{
         void fragmentThreeCallBack();
     }

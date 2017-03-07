@@ -11,6 +11,11 @@ import android.widget.ListView;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * A sample project to study how does activity and fragment life cycle works
+ *
+ * @author faisal khan
+ */
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -31,12 +36,12 @@ public class MainActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 switch (i){
                     case 0:
-                        //Start intent to AsyncTaskLoaderSample activity
+                        //Start intent to ActivityOne activity to study activity life cycle
                         startActivity(new Intent(MainActivity.this,ActivityOne.class));
                         break;
 
                     case 1:
-                        //Start intent to CursorLoaderSample activity
+                        //Start intent to FragmentMainActivity activity to study life cycle
                         startActivity(new Intent(MainActivity.this,FragmentMainActivity.class));
                         break;
                 }

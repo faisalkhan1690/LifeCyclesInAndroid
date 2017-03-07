@@ -9,6 +9,11 @@ import android.widget.TextView;
 
 import org.w3c.dom.Text;
 
+/**
+ * ActivityTwo class to demonstrate activity life cycle change in code and play
+ *
+ * @author faisal khan
+ */
 public class ActivityTwo extends AppCompatActivity {
 
     final String TAG=ActivityTwo.class.getSimpleName();

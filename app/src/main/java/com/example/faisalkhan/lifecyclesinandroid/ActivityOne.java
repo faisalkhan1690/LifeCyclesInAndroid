@@ -7,6 +7,11 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
+/**
+ * ActivityOne class to demonstrate activity life cycle change in code and play
+ *
+ * @author faisal khan
+ */
 public class ActivityOne extends AppCompatActivity {
 
     final String TAG=ActivityOne.class.getSimpleName();
